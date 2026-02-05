@@ -1,0 +1,107 @@
+services:
+  db_postgres:
+    container_name: db-postgres
+    image: postgres:latest
+    environment:
+      - "POSTGRES_PASSWORD=postgres"
+      - "POSTGRES_DB=db_autores"
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./db_postgres:/var/lib/postgresql"
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  db_mariadb:
+    container_name: db-mariadb
+    image: mariadb:latest
+    environment:
+      - "MARIADB_ROOT_PASSWORD=admin"
+      - "MARIADB_DATABASE=db_publicaciones"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./db_mariadb:/var/lib/mysql"
+    networks:
+      - microservices-network
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  autores:
+    container_name: autores-service
+    build:
+      context: ./autores
+      dockerfile: Dockerfile
+    env_file:
+      - .env.autores
+    ports:
+      - "8050:8000"
+    depends_on:
+      db_postgres:
+        condition: service_healthy
+    networks:
+      - microservices-network
+    restart: on-failure
+
+  publicaciones:
+    container_name: publicaciones-service
+    build:
+      context: ./publicaciones
+      dockerfile: Dockerfile
+    env_file:
+      - .env.publicaciones
+    ports:
+      - "8060:8000"
+    depends_on:
+      db_mariadb:
+        condition: service_healthy
+    networks:
+      - microservices-network
+    restart: on-failure
+
+  api_gateway:
+    container_name: api-gateway
+    build:
+      context: ./api_gateway
+      dockerfile: Dockerfile
+    env_file:
+      - .env.api_gateway
+    ports:
+      - "8070:8000"
+    depends_on:
+      autores:
+        condition: service_started
+      publicaciones:
+        condition: service_started
+    networks:
+      - microservices-network
+    restart: on-failure
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./front_end
+      dockerfile: Dockerfile
+    env_file:
+      - .env.frontend
+    ports:
+      - "8075:5173"
+    depends_on:
+      api_gateway:
+        condition: service_started
+    networks:
+      - microservices-network
+    restart: on-failure
+
+networks:
+  microservices-network:
+    driver: bridge

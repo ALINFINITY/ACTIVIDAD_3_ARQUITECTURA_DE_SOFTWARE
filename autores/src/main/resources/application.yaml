@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: autores
+  datasource:
+    url: ${ENV_DATABASE_URL:jdbc:postgresql://localhost:5432/db_autores}
+    username: ${ENV_DATABASE_USERNAME:postgres}
+    password: ${ENV_DATABASE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8000

@@ -1,0 +1,105 @@
+# ==================================
+# Database directories
+# ==================================
+db_mariadb/
+db_postgres/
+
+# ==================================
+# Python
+# ==================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[co]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+wheels/
+*.egg-info
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# ==================================
+# Java / Spring Boot / Maven
+# ==================================
+HELP.md
+target/*
+!target/*.jar
+!target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Spring Tool Suite
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/nbdist/
+/.nb-gradle/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# ==================================
+# Node.js / npm / Vite
+# ==================================
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Local files
+*.local
+
+# ==================================
+# Environment Variables
+# ==================================
+.env
+.env.local
+.env.*.local
+
+# ==================================
+# IDEs and Editors
+# ==================================
+# VS Code
+.vscode/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ==================================
+# Operating System
+# ==================================
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

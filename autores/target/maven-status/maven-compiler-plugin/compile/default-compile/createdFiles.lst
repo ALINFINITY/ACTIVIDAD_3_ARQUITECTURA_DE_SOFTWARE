@@ -1,0 +1,8 @@
+edu\espe\ec\autores\controllers\AutoresController.class
+edu\espe\ec\autores\entities\Autor.class
+edu\espe\ec\autores\AutoresApplication.class
+edu\espe\ec\autores\servicesImpl\AutorServiceImpl.class
+edu\espe\ec\autores\services\AutorService.class
+edu\espe\ec\autores\entities\Persona.class
+edu\espe\ec\autores\repositories\AutorRepository.class
+edu\espe\ec\autores\dtos\CrearAutorDTO.class

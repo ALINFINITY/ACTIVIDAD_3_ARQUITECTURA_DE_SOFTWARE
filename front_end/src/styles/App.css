@@ -1,0 +1,41 @@
+.app-container {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.card-futuristic {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 15px var(--shadow-violet);
+  transition: all 0.3s ease;
+}
+
+.card-futuristic:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 25px var(--shadow-violet);
+}
+
+.btn-violet {
+  background: linear-gradient(135deg, var(--violet-primary) 0%, var(--violet-dark) 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow-violet);
+}
+
+.btn-violet:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px var(--shadow-violet);
+}
