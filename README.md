@@ -2,6 +2,12 @@
 
 Sistema de microservicios para la gestión de autores y sus publicaciones académicas, implementado con arquitectura de microservicios utilizando Docker Compose.
 
+## Recomendaciones Docente
+
+Acceda al front-end por `http://localhost:8075`
+
+Utilice el API-GATEWAY para realizar posibles pruebas. Cada microservicio cuenta con su documentación.
+
 ## Autor
 
 Quilumbaquin Pillisa Alan David
