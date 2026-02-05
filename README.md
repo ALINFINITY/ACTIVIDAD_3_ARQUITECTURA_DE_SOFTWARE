@@ -18,18 +18,18 @@ El sistema está compuesto por los siguientes servicios:
 │  Port: 8070 │
 └──────┬──────┘
        │
-       ├──────────────────┬─────────────────┐
-       ▼                  ▼                 ▼
-┌─────────────┐    ┌─────────────┐  ┌─────────────┐
-│   Autores   │    │Publicaciones│  │   Bases de  │
-│  Port: 8050 │    │  Port: 8060 │  │    Datos    │
-│ (Spring)    │    │  (FastAPI)  │  │             │
-└──────┬──────┘    └──────┬──────┘  │ PostgreSQL  │
-       │                  │          │  Port: 5432 │
-       ▼                  ▼          │             │
-┌─────────────┐    ┌─────────────┐  │  MariaDB    │
-│ PostgreSQL  │    │   MariaDB   │  │  Port: 3306 │
-│db_autores   │    │db_publicac. │  └─────────────┘
+       ├──────────────────┬
+       ▼                  ▼                
+┌─────────────┐    ┌─────────────┐  
+│   Autores   │    │Publicaciones│  
+│  Port: 8050 │    │  Port: 8060 │  
+│ (Spring)    │    │  (FastAPI)  │  
+└──────┬──────┘    └──────┬──────┘   
+       │                  │         
+       ▼                  ▼          
+┌─────────────┐    ┌─────────────┐  
+│ PostgreSQL  │    │   MariaDB   │  
+│db_autores   │    │db_publicac. │  
 └─────────────┘    └─────────────┘
 ```
 
