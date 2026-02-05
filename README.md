@@ -2,6 +2,10 @@
 
 Sistema de microservicios para la gestión de autores y sus publicaciones académicas, implementado con arquitectura de microservicios utilizando Docker Compose.
 
+## Autor
+
+Quilumbaquin Pillisa Alan David
+
 ## Arquitectura
 
 El sistema está compuesto por los siguientes servicios:
